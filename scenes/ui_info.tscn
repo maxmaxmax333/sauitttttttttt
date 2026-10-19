@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://b5latvb7j4unx"]
+
+[ext_resource type="Texture2D" uid="uid://bgi16xay35dt3" path="res://assets/ASSET_PACK/sprite.png" id="1_s7ngc"]
+[ext_resource type="FontFile" uid="uid://c4lqrcw1qmy4j" path="res://assets/ComicoroRu_0.ttf" id="2_seo6g"]
+[ext_resource type="Script" uid="uid://dek4v2glerp4a" path="res://script/ui_info.gd.gd" id="3_seo6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhhky"]
+atlas = ExtResource("1_s7ngc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7g2ff"]
+texture = SubResource("AtlasTexture_uhhky")
+texture_margin_left = 3.0
+texture_margin_top = 2.0
+texture_margin_right = 3.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_ugrv0"]
+default_font = ExtResource("2_seo6g")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_7g2ff")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g2ff"]
+atlas = ExtResource("1_s7ngc")
+region = Rect2(32, 17, 35, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aeqx"]
+atlas = ExtResource("1_s7ngc")
+region = Rect2(27, 32, 40, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx5om"]
+atlas = ExtResource("1_s7ngc")
+region = Rect2(0, 47, 36, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx2te"]
+atlas = ExtResource("1_s7ngc")
+region = Rect2(35, 47, 32, 17)
+
+[node name="UiInfo" type="Control" unique_id=1271707433 node_paths=PackedStringArray("Hp", "Hov", "Bag", "Wg", "Name")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ugrv0")
+script = ExtResource("3_seo6g")
+Hp = NodePath("VBoxContainer/Hp/HpTextEdit")
+Hov = NodePath("VBoxContainer/Hov/HovTextEdit")
+Bag = NodePath("VBoxContainer/Bag/BagTextEdit")
+Wg = NodePath("VBoxContainer/Wg/WgTextEdit")
+Name = NodePath("VBoxContainer/Name/NameTextEdit")
+
+[node name="Background" type="ColorRect" parent="." unique_id=633827659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5882353, 0.52156866, 0.46666667, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=911834856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="HBoxContainer" parent="VBoxContainer" unique_id=1933733169]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Name" unique_id=1634732099]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameTextEdit" type="TextEdit" parent="VBoxContainer/Name" unique_id=1174557055]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Hp" type="HBoxContainer" parent="VBoxContainer" unique_id=1204660277]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HpLabel" type="TextureRect" parent="VBoxContainer/Hp" unique_id=1219574251]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7g2ff")
+
+[node name="HpTextEdit" type="TextEdit" parent="VBoxContainer/Hp" unique_id=353641568]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Hov" type="HBoxContainer" parent="VBoxContainer" unique_id=487839918]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HovLabel" type="TextureRect" parent="VBoxContainer/Hov" unique_id=979623985]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2aeqx")
+
+[node name="HovTextEdit" type="TextEdit" parent="VBoxContainer/Hov" unique_id=948522423]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Bag" type="HBoxContainer" parent="VBoxContainer" unique_id=696035334]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BagLabel" type="TextureRect" parent="VBoxContainer/Bag" unique_id=1606309649]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xx5om")
+
+[node name="BagTextEdit" type="TextEdit" parent="VBoxContainer/Bag" unique_id=55071237]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Wg" type="HBoxContainer" parent="VBoxContainer" unique_id=1888146618]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="WgLabel" type="TextureRect" parent="VBoxContainer/Wg" unique_id=1526778569]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vx2te")
+
+[node name="WgTextEdit" type="TextEdit" parent="VBoxContainer/Wg" unique_id=1921599856]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="VBoxContainer" unique_id=1853930140]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "NEXT"
+
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
